@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Evara Lyrissha - My Parents</title>
+        <style>
+          @font-face {
+            font-family:"COCOGOOSE";
+            src:url("Cocogoose.ttf") format("truetype");
+            font-weight:normal;
+            font-style:normal;
+          }
+        </style>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+              theme: {
+                extend: {
+                  colors: {
+                    unguEva: '#453f79',
+                    unguEva2: '#575081',
+                    unguMudaEva: '#855995',
+                    softBlueEva: '#949db7',
+                    whiteEva: '#e9e9e9',
+                    periwinkleEva: '#a09cdd',
+                  },
+                },
+              }
+            }
+          </script>
+    </head>
+    <body class="w-screen h-screen bg-white overflow-hidden">
+        <div class="overflow-x-hidden">
+            <div class="w-screen h-screen bg-white">
+                <div class="w-[20%] h-screen bg-unguEva"></div>
+                <img src="Gear_1.png" class="h-[30%] absolute top-[30%] right-[-6%] z-0"/>
+                <img src="Gear_2.png" class="h-[50%] absolute bottom-[-17%] right-[-7%] z-0"/>
+                <img src="Gear_2.png" class="h-[30%] absolute bottom-[-17%] right-[20%] z-0"/>
+                <div class="w-[40%] h-screen absolute left-0 top-0 flex flex-col items-center justify-evenly">
+                  <div class="w-[25vw] h-36 rounded-full border-8 border-whiteEva bg-periwinkleEva flex flex-col items-center justify-center text-white text-xl" style="font-family: COCOGOOSE;">
+                    <p>MAMA</p>
+                    <div class="w-[80%] bg-white h-2 rounded-full my-3"></div>
+                    <p>Rifuki Michi</p>
+                  </div>
+                  <div class="w-[25vw] h-36 rounded-full border-8 border-whiteEva bg-periwinkleEva flex flex-col items-center justify-center text-white text-xl" style="font-family: COCOGOOSE;">
+                    <p>PAPA</p>
+                    <div class="w-[80%] bg-white h-2 rounded-full my-3"></div>
+                    <p>Erina Kari</p>
+                  </div>
+                </div>
+                <div class="w-[70%] h-screen absolute right-0 top-0 flex flex-col items-center justify-center">
+                  <div class="w-full flex flex-row items-center justify-evenly">
+                    <a href="https://twitter.com/@ErinaKari"><img src="mama.jpg" class="w-[20vw] rounded-full border-8 border-unguMudaEva"/></a>
+                    <a href="https://twitter.com/@rifuki94"><img src="papa.jpg" class="w-[20vw] rounded-full border-8 border-unguMudaEva"/></a>
+                  </div>
+                  <div class="rounded-full w-1/2 mx-auto mt-12 h-12 hover:w-[60%] hover:h-16 transition-all duration-200 bg-softBlueEva border-4 border-unguEva text-white flex items-center justify-center">
+                    <a href="index.html" class="w-full h-full flex items-center justify-center" style="font-family: COCOGOOSE">Back to Home</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Evara Lyrissha - About Me</title>
+        <style>
+          @font-face {
+            font-family:"COCOGOOSE";
+            src:url("Cocogoose.ttf") format("truetype");
+            font-weight:normal;
+            font-style:normal;
+          }
+        </style>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+              theme: {
+                extend: {
+                  colors: {
+                    unguEva: '#453f79',
+                    unguEva2: '#575081',
+                    unguMudaEva: '#855995',
+                    softBlueEva: '#949db7',
+                    whiteEva: '#e9e9e9',
+                  },
+                },
+              }
+            }
+          </script>
+    </head>
+    <body class="w-screen h-screen bg-white overflow-hidden">
+        <div class="overflow-x-hidden">
+            <div class="w-screen h-screen bg-white">
+                <div class="w-[30%] h-screen bg-unguEva"></div>
+                <img src="evara_page1.png" class="h-full absolute top-0 left-[15%] z-10"/>
+                <img src="Gear_1.png" class="h-full absolute top-[-60%] left-[15%] z-0"/>
+                <img src="Gear_2.png" class="h-[50%] absolute bottom-[-17%] right-[-7%] z-0"/>
+                <img src="Gear_2.png" class="h-[30%] absolute bottom-[-17%] right-[20%] z-0"/>
+                <div class="w-[40%] absolute top-[30%] right-24">
+                  <p class="rounded-full w-full border-2 border-unguMudaEva text-center text-unguEva">Version 1.1</p>
+                  <div class="rounded-lg bg-unguMudaEva w-full flex flex-row items-center justify-center mt-8 py-4">
+                    <table class="font-COCOGOSE text-white text-xl" style="font-family: 'COCOGOOSE';">
+                      <tr>
+                        <td class="pr-4">○</td>
+                        <td>Nama</td>
+                        <td class="px-4">:</td>
+                        <td>Evara Lyrissha</td>
+                      </tr>
+                      <tr>
+                        <td class="pr-4">○</td>
+                        <td>Panggilan</td>
+                        <td class="px-4">:</td>
+                        <td>Evara/Epara</td>
+                      </tr>
+                      <tr>
+                        <td class="pr-4">○</td>
+                        <td>Ulang Tahun</td>
+                        <td class="px-4">:</td>
+                        <td>31 Agustus</td>
+                      </tr>
+                      <tr>
+                        <td class="pr-4">○</td>
+                        <td>Tinggi</td>
+                        <td class="px-4">:</td>
+                        <td>156 cm</td>
+                      </tr>
+                      <tr>
+                        <td class="pr-4">○</td>
+                        <td>Role</td>
+                        <td class="px-4">:</td>
+                        <td>Automaton</td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="rounded-full w-1/2 hover:w-[60%] hover:h-16 transition-all duration-200 mx-auto mt-12 h-12 bg-softBlueEva border-4 border-unguEva text-white flex items-center justify-center">
+                    <a href="page2.html" class="w-full h-full flex items-center justify-center" style="font-family: COCOGOOSE">Go To My Hobbies</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
