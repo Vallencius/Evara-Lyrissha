@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Evara Lyrissha Ch.</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+              theme: {
+                extend: {
+                  colors: {
+                    unguEva: '#453f79',
+                    unguEva2: '#575081',
+                    unguMudaEva: '#855995',
+                    softBlueEva: '#949db7',
+                    whiteEva: '#e9e9e9',
+                    periwinkleEva: '#a09cdd',
+                  }
+                }
+              }
+            }
+          </script>
+          <style>
+            html {
+                scroll-behavior: smooth;
+            }
+          </style>
+    </head>
+    <body class="w-screen overflow-x-hidden bg-white">
+        <section class="overflow-x-hidden" id="home">
+            <a class="w-screen h-screen bg-periwinkleEva flex flex-col items-center justify-center" href="#about">
+                <img src="logo.png" class="w-[500px] hover:w-[550px] transition-all duration-200"/>
+            </a>
+            <a class="absolute bottom-4 left-1/2 transform -translate-x-1/2" href="#about">
+                <img src="scroll.gif" class="w-[100px] hover:w-[110px] transition-all duration-200"/>
+            </a>
+        </section>
+        <section class="w-screen h-screen overflow-hidden relative" id="about">
+            <div class="overflow-x-hidden">
+                <div class="w-screen h-screen">
+                    <div class="w-[30%] h-screen bg-gradient-to-b from-periwinkleEva to-unguEva"></div>
+                    <img src="evara_page1.png" class="h-[50%] lg:h-full absolute bottom-0 left-[15%] z-10"/>
+                    <div class="hidden lg:block w-[40%] absolute top-[30%] right-24">
+                      <p class="rounded-full w-full border-2 border-unguMudaEva text-center text-unguEva">Version 1.1</p>
+                      <div class="rounded-lg bg-unguMudaEva w-full flex flex-row items-center justify-center mt-8 py-4">
+                        <table class="font-COCOGOSE text-white text-xl" style="font-family: 'COCOGOOSE';">
+                          <tr>
+                            <td class="pr-4">o</td>
+                            <td>Nama</td>
+                            <td class="px-4">:</td>
+                            <td>Evara Lyrissha</td>
+                          </tr>
+                          <tr>
+                            <td class="pr-4">o</td>
+                            <td>Panggilan</td>
+                            <td class="px-4">:</td>
+                            <td>Evara/Epara</td>
+                          </tr>
+                          <tr>
+                            <td class="pr-4">o</td>
+                            <td>Ulang Tahun</td>
+                            <td class="px-4">:</td>
+                            <td>31 Agustus</td>
+                          </tr>
+                          <tr>
+                            <td class="pr-4">o</td>
+                            <td>Tinggi</td>
+                            <td class="px-4">:</td>
+                            <td>156 cm</td>
+                          </tr>
+                          <tr>
+                            <td class="pr-4">o</td>
+                            <td>Role</td>
+                            <td class="px-4">:</td>
+                            <td>Automaton</td>
+                          </tr>
+                        </table>
+                      </div>
+                      <div class="rounded-full w-1/2 hover:w-[60%] hover:h-16 transition-all duration-200 mx-auto mt-12 h-12 bg-softBlueEva border-4 border-unguEva text-white flex items-center justify-center">
+                        <a href="#hobby" class="w-full h-full flex items-center justify-center" style="font-family: COCOGOOSE">Go To My Hobbies</a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="w-screen h-screen overflow-hidden relative" id="hobby">
+            <div class="overflow-hidden">
+                <div class="w-screen h-screen">
+                  <div class="w-[30%] rotate-[70deg] h-[1500px] bg-unguEva absolute bottom-0 left-0 z-0"></div>
+                  <div class="w-[30%] rotate-[60deg] h-[1000px] bg-unguEva absolute top-[calc(50%)] left-[75%] z-0"></div>
+                  <div class="w-[40%] h-screen flex flex-col items-center justify-center absolute ml-[5vw]">
+                    <div class="rounded-lg bg-unguMudaEva w-full flex flex-row items-center justify-center mt-8 py-12 z-10">
+                      <table class="font-COCOGOSE text-white text-xl" style="font-family: 'COCOGOOSE';">
+                        <tr>
+                          <td>Hobi</td>
+                          <td class="px-4">:</td>
+                          <td>Gangguin Riel</td>
+                        </tr>
+                        <tr>
+                          <td>Favorit</td>
+                          <td class="px-4">:</td>
+                          <td>Makan HP mama rifuki,</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td class="px-4"></td>
+                          <td>recharge batre</td>
+                        </tr>
+                        <tr>
+                          <td>Phobia</td>
+                          <td class="px-4">:</td>
+                          <td>Serangga</td>
+                        </tr>
+                        <tr>
+                          <td>bahasa</td>
+                          <td class="px-4">:</td>
+                          <td>Indonesia, Japanlish</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div class="w-full flex flex-row mt-8 z-10">
+                      <img src="game.png" class="w-1/3"/>
+                      <img src="qa.png" class="w-1/3"/>
+                      <img src="sing.png" class="w-1/3"/>
+                    </div>
+                    <div class="rounded-full w-1/2 mx-auto mt-12 h-12 hover:w-[60%] hover:h-16 transition-all duration-200 bg-softBlueEva border-4 border-unguEva text-white flex items-center justify-center">
+                      <a href="#parent" class="w-full h-full flex items-center justify-center" style="font-family: COCOGOOSE">Go To My Parents</a>
+                    </div>
+                  </div>
+                  <img src="evara_2.png" class="h-full absolute top-0 right-[5%] z-10"/>
+                </div>
+            </div>
+        </section>
+        <section class="w-screen h-screen overflow-hidden relative z-10" id="parent">
+            <div class="overflow-x-hidden">
+                <div class="w-screen h-screen">
+                    <div class="w-[20%] h-screen bg-unguEva"></div>
+                    <img src="Gear_1.png" class="h-[30%] absolute top-[30%] right-[-6%] z-0"/>
+                    <!-- <img src="Gear_2.png" class="h-[50%] absolute bottom-[-17%] right-[-7%] z-0"/> -->
+                    <img src="Gear_2.png" class="h-[30%] absolute bottom-[-17%] left-[15%] z-0"/>
+                    <div class="w-[40%] h-screen absolute left-0 top-0 flex flex-col items-center justify-evenly">
+                      <div class="w-[25vw] h-36 rounded-full border-8 border-whiteEva bg-periwinkleEva flex flex-col items-center justify-center text-white text-xl" style="font-family: COCOGOOSE;">
+                        <p>MAMA</p>
+                        <div class="w-[80%] h-2 rounded-full my-3 bg-white"></div>
+                        <p>Rifuki Michi</p>
+                      </div>
+                      <div class="w-[25vw] h-36 rounded-full border-8 border-whiteEva bg-periwinkleEva flex flex-col items-center justify-center text-white text-xl" style="font-family: COCOGOOSE;">
+                        <p>PAPA</p>
+                        <div class="w-[80%] h-2 rounded-full my-3 bg-white"></div>
+                        <p>Erina Kari</p>
+                      </div>
+                    </div>
+                    <div class="w-[70%] h-screen absolute right-0 top-0 flex flex-col items-center justify-center">
+                      <div class="w-full flex flex-row items-center justify-evenly">
+                        <a href="https://twitter.com/@ErinaKari"><img src="mama.jpg" class="w-[20vw] hover:w-[21vw] transition-all duration-200 rounded-full border-8 border-unguMudaEva"/></a>
+                        <a href="https://twitter.com/@rifuki94"><img src="papa.jpg" class="w-[20vw] hover:w-[21vw] transition-all duration-200 rounded-full border-8 border-unguMudaEva"/></a>
+                      </div>
+                      <div class="rounded-full w-1/2 mx-auto mt-12 h-12 hover:w-[60%] hover:h-16 transition-all duration-200 bg-softBlueEva border-4 border-unguEva text-white flex items-center justify-center">
+                        <a href="#home" class="w-full h-full flex items-center justify-center" style="font-family: COCOGOOSE">Back to Home</a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <a href="https://vallencius.my.id">
+          <div class="w-screen bg-unguEva">
+            <p class="text-white text-center">Made with 💜 by Vallencius Gavriel</p>
+          </div>
+        </a>
+
+        <!-- Absolute img -->
+        <img src="Gear_1.png" class="h-[500px] lg:h-[750px] absolute top-[-200px] lg:top-[calc(-375px)] right-[-15%] z-0"/>
+        <img src="Gear_2.png" class="h-[200px] lg:h-[275px] absolute top-[calc(-150px+100vh)] lg:top-[calc(-225px+100vh)] right-[-4%] z-0"/>
+        <!-- Page1 -->
+        <img src="Gear_1.png" class="h-[500px] lg:h-[700px] absolute top-[calc(-250px+100vh)] lg:top-[calc(-325px+100vh)] left-[-18%] z-0"/>
+        <img src="Gear_2.png" class="h-[450px] absolute bottom-[calc(-150px-100vh)] right-[-7%] z-0"/>
+        <!-- <img src="Gear_1.png" class="h-[20%] absolute top-[calc(5%+100vh)] right-[-4%] z-0"/> -->
+        <img src="Gear_2.png" class="h-[275px] absolute bottom-[calc(-150px-100vh)] right-[20%] z-0"/>
+        <!-- Page2 -->
+        <img src="Gear_2.png" class="h-[350px] absolute bottom-[calc(-125px-200vh)] right-[35%] z-10"/>
+    </body>
+</html>
