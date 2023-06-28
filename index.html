@@ -11,9 +11,20 @@
                     unguEva: '#453f79',
                     unguEva2: '#575081',
                     unguMudaEva: '#855995',
-                    softBlueEva: '#949db7',
+                    blueButton: '#949db7',
                     whiteEva: '#e9e9e9',
                     periwinkleEva: '#a09cdd',
+                    blueButton: '#a8b8f4'
+                  },
+                  keyframes: {
+                    wiggle: {
+                      '0%, 100%': { transform: 'rotate(-3deg)' },
+                      '50%': { transform: 'rotate(3deg)' },
+                    }
+                  },
+                  animation: {
+                    'spin-slow': 'spin 3s linear infinite',
+                    wiggle: 'wiggle 1s ease-in-out infinite',
                   }
                 }
               }
@@ -23,73 +34,114 @@
             html {
                 scroll-behavior: smooth;
             }
+            .polka-dot {
+              background-color: #a09cdd; /* Fill color of the dots */
+              border-radius: 50%; /* Rounded shape for dots */
+              z-index: 0;
+              position:absolute;
+              /* Add any additional styles you want for the dots */
+            }
           </style>
+      <script>
+        document.addEventListener("DOMContentLoaded", function(event) { 
+          // Get a reference to the polka dot container
+          const container = document.getElementById('polka-dot-container');
+        
+          // Define the number of dots and their size
+          const dotCountX = 6;
+          const dotCountY = 20;
+          const dotSize = 30;
+
+          // Generate the dots dynamically
+          for (let i = 0; i < dotCountX; i++) {
+            for (let j = 0; j < dotCountY; j++) {
+              // Create a dot element
+              const dot = document.createElement('div');
+              dot.classList.add('polka-dot');
+
+              // Set the dot's size and position
+              dot.style.width = `${dotSize}px`;
+              dot.style.height = `${dotSize}px`;
+                dot.style.top = `${(j+0.5) * document.documentElement.scrollHeight/dotCountY}px`;
+              if (j%2) {
+                dot.style.left = `${i * (window.innerWidth/dotCountX)}px`;
+              } else {
+                dot.style.left = `${(i+0.5) * (window.innerWidth/dotCountX)}px`;
+              }
+
+              // Add the dot to the container
+              container.appendChild(dot);
+            }
+          }
+        });
+      </script>
     </head>
-    <body class="w-screen overflow-x-hidden bg-white">
-        <section class="overflow-x-hidden" id="home">
-            <a class="w-screen h-screen bg-periwinkleEva flex flex-col items-center justify-center" href="#about">
+    <body>
+      <div id="polka-dot-container" class="w-full overflow-x-hidden bg-white relative">
+        <section class="w-full h-screen overflow-x-hidden relative z-10" id="home">
+            <a class="w-full h-full bg-periwinkleEva flex flex-col items-center justify-center" href="#about">
                 <img src="logo.png" class="w-[500px] hover:w-[550px] transition-all duration-200"/>
             </a>
             <a class="absolute bottom-4 left-1/2 transform -translate-x-1/2" href="#about">
                 <img src="scroll.gif" class="w-[100px] hover:w-[110px] transition-all duration-200"/>
             </a>
         </section>
-        <section class="w-screen h-screen overflow-hidden relative" id="about">
-            <div class="overflow-x-hidden">
-                <div class="w-screen h-screen">
-                    <div class="w-[30%] h-screen bg-gradient-to-b from-periwinkleEva to-unguEva"></div>
-                    <img src="evara_page1.png" class="h-[50%] lg:h-full absolute bottom-0 left-[15%] z-10"/>
-                    <div class="hidden lg:block w-[40%] absolute top-[30%] right-24">
-                      <p class="rounded-full w-full border-2 border-unguMudaEva text-center text-unguEva">Version 1.1</p>
-                      <div class="rounded-lg bg-unguMudaEva w-full flex flex-row items-center justify-center mt-8 py-4">
-                        <table class="font-COCOGOSE text-white text-xl" style="font-family: 'COCOGOOSE';">
-                          <tr>
-                            <td class="pr-4">o</td>
-                            <td>Nama</td>
-                            <td class="px-4">:</td>
-                            <td>Evara Lyrissha</td>
-                          </tr>
-                          <tr>
-                            <td class="pr-4">o</td>
-                            <td>Panggilan</td>
-                            <td class="px-4">:</td>
-                            <td>Evara/Epara</td>
-                          </tr>
-                          <tr>
-                            <td class="pr-4">o</td>
-                            <td>Ulang Tahun</td>
-                            <td class="px-4">:</td>
-                            <td>31 Agustus</td>
-                          </tr>
-                          <tr>
-                            <td class="pr-4">o</td>
-                            <td>Tinggi</td>
-                            <td class="px-4">:</td>
-                            <td>156 cm</td>
-                          </tr>
-                          <tr>
-                            <td class="pr-4">o</td>
-                            <td>Role</td>
-                            <td class="px-4">:</td>
-                            <td>Automaton</td>
-                          </tr>
-                        </table>
-                      </div>
-                      <div class="rounded-full w-1/2 hover:w-[60%] hover:h-16 transition-all duration-200 mx-auto mt-12 h-12 bg-softBlueEva border-4 border-unguEva text-white flex items-center justify-center">
-                        <a href="#hobby" class="w-full h-full flex items-center justify-center" style="font-family: COCOGOOSE">Go To My Hobbies</a>
-                      </div>
+        <section class="w-screen h-screen z-10 overflow-hidden relative" id="about">
+          <div class="overflow-x-hidden">
+              <div class="w-screen h-screen">
+                  <div class="w-[30%] h-screen bg-gradient-to-b from-periwinkleEva to-unguEva"></div>
+                  <img src="evara_page1.png" class="h-[50%] lg:h-full absolute bottom-0 md:left-[10%] xl:left-[15%] z-10"/>
+                  <div class="w-[80%] lg:w-[40%] absolute top-[15%] right-24">
+                    <p class="rounded-full w-full bg-white border-2 border-unguMudaEva text-center text-unguEva text-2xl md:text-6xl xl:text-4xl md:py-4 lg:py-2 xl:py-4">Version 1.1</p>
+                    <div class="rounded-lg bg-unguMudaEva w-full flex flex-row items-center justify-center mt-8 py-8">
+                      <table class="font-COCOGOSE text-white md:text-4xl lg:text-xl xl:text-[28px] border-separate md:border-spacing-2 lg:border-spacing-1 xl:border-spacing-2" style="font-family: 'COCOGOOSE';">
+                        <tr>
+                          <td class="pr-4">o</td>
+                          <td>Nama</td>
+                          <td class="px-4">:</td>
+                          <td>Evara Lyrissha</td>
+                        </tr>
+                        <tr>
+                          <td class="pr-4">o</td>
+                          <td>Panggilan</td>
+                          <td class="px-4">:</td>
+                          <td>Evara/Epara</td>
+                        </tr>
+                        <tr>
+                          <td class="pr-4">o</td>
+                          <td>Ulang Tahun</td>
+                          <td class="px-4">:</td>
+                          <td>31 Agustus</td>
+                        </tr>
+                        <tr>
+                          <td class="pr-4">o</td>
+                          <td>Tinggi</td>
+                          <td class="px-4">:</td>
+                          <td>156 cm</td>
+                        </tr>
+                        <tr>
+                          <td class="pr-4">o</td>
+                          <td>Role</td>
+                          <td class="px-4">:</td>
+                          <td>Automaton</td>
+                        </tr>
+                      </table>
                     </div>
-                </div>
-            </div>
-        </section>
-        <section class="w-screen h-screen overflow-hidden relative" id="hobby">
+                    <div class="rounded-full w-1/2 hover:w-[60%] md:h-16 md:hover:h-20 lg:h-12 lg:hover:h-16 xl:h-16 xl:hover:h-20 transition-all duration-200 mx-auto mt-8 bg-blueButton border-4 border-unguEva text-unguEva flex items-center justify-center">
+                      <a href="#hobby" class="md:text-xl lg:text-base xl:text-xl w-full h-full flex items-center justify-center" style="font-family: COCOGOOSE">Go To My Hobbies</a>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          </section>
+          <div class="hidden sm:block w-screen h-screen z-10 overflow-hidden relative" id="hobby">
             <div class="overflow-hidden">
-                <div class="w-screen h-screen">
-                  <div class="w-[30%] rotate-[70deg] h-[1500px] bg-unguEva absolute bottom-0 left-0 z-0"></div>
-                  <div class="w-[30%] rotate-[60deg] h-[1000px] bg-unguEva absolute top-[calc(50%)] left-[75%] z-0"></div>
-                  <div class="w-[40%] h-screen flex flex-col items-center justify-center absolute ml-[5vw]">
-                    <div class="rounded-lg bg-unguMudaEva w-full flex flex-row items-center justify-center mt-8 py-12 z-10">
-                      <table class="font-COCOGOSE text-white text-xl" style="font-family: 'COCOGOOSE';">
+              <div class="w-[30%] rotate-[70deg] h-[3000px] bg-unguEva absolute bottom-[-20%] left-[50%] z-0"></div>
+              <div class="w-[30%] rotate-[60deg] h-[1000px] bg-unguEva absolute top-[calc(50%)] left-[75%] z-0"></div>
+                <div class="w-full h-screen flex flex-row items-center justify-center">
+                  <div class="h-full w-1/3 flex flex-col items-center justify-center">
+                    <div class="rounded-r-lg bg-unguMudaEva w-full flex flex-row items-center justify-center mt-8 py-16 z-10">
+                      <table class="font-COCOGOSE text-white md:text-lg xl:text-2xl border-separate md:border-spacing-1 xl:border-spacing-2" style="font-family: 'COCOGOOSE';">
                         <tr>
                           <td>Hobi</td>
                           <td class="px-4">:</td>
@@ -111,71 +163,179 @@
                           <td>Serangga</td>
                         </tr>
                         <tr>
-                          <td>bahasa</td>
+                          <td>Bahasa</td>
                           <td class="px-4">:</td>
                           <td>Indonesia, Japanlish</td>
                         </tr>
                       </table>
                     </div>
-                    <div class="w-full flex flex-row mt-8 z-10">
-                      <img src="game.png" class="w-1/3"/>
-                      <img src="qa.png" class="w-1/3"/>
-                      <img src="sing.png" class="w-1/3"/>
-                    </div>
-                    <div class="rounded-full w-1/2 mx-auto mt-12 h-12 hover:w-[60%] hover:h-16 transition-all duration-200 bg-softBlueEva border-4 border-unguEva text-white flex items-center justify-center">
-                      <a href="#parent" class="w-full h-full flex items-center justify-center" style="font-family: COCOGOOSE">Go To My Parents</a>
-                    </div>
+                    <div class="h-[10%]"></div>
                   </div>
-                  <img src="evara_2.png" class="h-full absolute top-0 right-[5%] z-10"/>
+                  <div class="w-1/3 h-full flex flex-row items-center justify-center z-10">
+                    <img src="evara_2.png" class="max-h-full max-w-full"/>
+                  </div>
+                  <div class="h-full w-1/3 flex flex-col justify-center pr-8">
+                    <div class="h-1/5 w-full flex flex-row items-center justify-evenly">
+                      <div class="opacity-0 rounded-lg bg-unguMudaEva w-[20%] flex flex-col items-center justify-center mt-8 py-8 px-12 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                        <p>Hobi : Gangguin Riel</p>
+                      </div>
+                      <div class="w-[60%] flex flex-col items-center justify-center mt-8 py-8 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                        <img src="game.png" class="w-full xl:w-[80%] z-10"/>
+                      </div>
+                      <div class="opacity-0 rounded-lg bg-unguMudaEva w-[20%] flex flex-col items-center justify-center mt-8 py-8 px-12 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                        <p>Hobi : Gangguin Riel</p>
+                      </div>
+                    </div>
+                    <div class="h-1/5 w-full flex flex-row items-center justify-evenly">
+                      <div class="w-[60%] flex flex-col items-center justify-center mt-8 py-8 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                        <img src="qa.png" class="w-full xl:w-[80%] z-10"/>
+                      </div>
+                      <div class="opacity-0 rounded-lg bg-unguMudaEva w-[40%] flex flex-col items-center justify-center mt-8 py-8 px-12 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                        <p>Hobi : Gangguin Riel</p>
+                      </div>
+                    </div>
+                    <div class="h-1/5 w-full flex flex-row items-center justify-evenly">
+                      <div class="opacity-0 rounded-lg bg-unguMudaEva w-[20%] flex flex-col items-center justify-center mt-8 py-8 px-12 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                        <p>Hobi : Gangguin Riel</p>
+                      </div>
+                      <div class="w-[60%] flex flex-col items-center justify-center mt-8 py-8 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                        <img src="sing.png" class="w-full xl:w-[80%] z-10"/>
+                      </div>
+                      <div class="opacity-0 rounded-lg bg-unguMudaEva w-[20%] flex flex-col items-center justify-center mt-8 py-8 px-12 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                        <p>Hobi : Gangguin Riel</p>
+                      </div>
+                    </div>
+                    <div class="h-[10%]"></div>
+                  </div>
                 </div>
             </div>
-        </section>
-        <section class="w-screen h-screen overflow-hidden relative z-10" id="parent">
-            <div class="overflow-x-hidden">
+            <div class="absolute bottom-8 right-8 z-20 rounded-full w-[20%] mx-auto mt-12 h-12 hover:w-[25%] hover:h-16 transition-all duration-200 bg-blueButton border-4 border-unguMudaEva text-unguEva flex items-center justify-center">
+              <a href="#parent" class="w-full h-full flex items-center justify-center" style="font-family: COCOGOOSE">Go To My Parents</a>
+            </div>
+        </div>
+        <div class="block sm:hidden w-screen h-screen z-10 overflow-hidden relative" id="hobby">
+          <div class="w-full h-[10%] flex flex-row mt-8 z-0"></div>
+          <div class="w-full h-[10%] flex flex-row mt-8 z-0">
+            <div class="w-1/3 h-auto flex items-center justify-center">
+              <img img src="game.png"/>
+            </div>
+            <div class="w-1/3 h-auto flex items-center justify-center">
+              <img img src="qa.png"/>
+            </div>
+            <div class="w-1/3 h-auto flex items-center justify-center">
+              <img img src="sing.png"/>
+            </div>
+          </div>
+          <div class="w-full h-[60%] flex flex-row justify-center items-center">
+            <div class="w-1/2">
+              <img src="evara_2.png" class="max-h-full max-w-full"/>
+            </div>
+            <div class="w-1/2 h-[80%] flex flex-col justify-evenly items-center">
+              <div class="h-1/4 w-full flex flex-row items-center justify-evenly">
+                <div class="w-[60%] rounded-r-lg bg-unguMudaEva flex flex-col items-center justify-center mt-8 py-8 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                  <p>Hobi : Gangguin Riel</p>
+                </div>
+                <div class="opacity-0 rounded-lg bg-unguMudaEva w-[40%] flex flex-col items-center justify-center mt-8 py-8 px-12 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                  <p>Hobi : Gangguin Riel</p>
+                </div>
+              </div>
+              <div class="h-1/4 w-full flex flex-row items-center justify-evenly">
+                <div class="opacity-0 rounded-lg bg-unguMudaEva w-[20%] flex flex-col items-center justify-center mt-8 py-8 px-12 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                  <p>Hobi : Gangguin Riel</p>
+                </div>
+                <div class="w-[60%] rounded-r-lg bg-unguMudaEva flex flex-col items-center justify-center mt-8 py-8 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                  <p>Favorit : Makan HP mama rifuki, recharge batre</p>
+                </div>
+                <div class="opacity-0 rounded-lg bg-unguMudaEva w-[20%] flex flex-col items-center justify-center mt-8 py-8 px-12 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                  <p>Hobi : Gangguin Riel</p>
+                </div>
+              </div>
+              <div class="h-1/4 w-full flex flex-row items-center justify-evenly">
+                <div class="w-[60%] rounded-r-lg bg-unguMudaEva flex flex-col items-center justify-center mt-8 py-8 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                  <p>Phobia : Serangga</p>
+                </div>
+                <div class="opacity-0 rounded-lg bg-unguMudaEva w-[40%] flex flex-col items-center justify-center mt-8 py-8 px-12 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                  <p>Hobi : Gangguin Riel</p>
+                </div>
+              </div>
+              <div class="h-1/4 w-full flex flex-row items-center justify-evenly">
+                <div class="opacity-0 rounded-lg bg-unguMudaEva w-[20%] flex flex-col items-center justify-center mt-8 py-8 px-12 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                  <p>Hobi : Gangguin Riel</p>
+                </div>
+                <div class="w-[60%] rounded-r-lg bg-unguMudaEva flex flex-col items-center justify-center mt-8 py-8 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                  <p>Bahasia : Indonesia, Japanlish</p>
+                </div>
+                <div class="opacity-0 rounded-lg bg-unguMudaEva w-[20%] flex flex-col items-center justify-center mt-8 py-8 px-12 z-10 font-COCOGOSE text-white text-xl text-center" style="font-family: 'COCOGOOSE';">
+                  <p>Hobi : Gangguin Riel</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full h-[10%] flex flex-row items-center justify-center mt-8 z-0">
+            <div class="z-20 rounded-full w-[50%] mx-auto mt-12 h-[50%] hover:w-[60%] hover:h-[60%] transition-all duration-200 bg-blueButton border-4 border-unguMudaEva text-unguEva flex items-center justify-center">
+              <a href="#parent" class="w-full h-full flex items-center justify-center text-3xl" style="font-family: COCOGOOSE">Go To My Parents</a>
+            </div>
+          </div>
+        </div>
+        <section class="w-screen h-screen z-10 overflow-hidden relative z-10" id="parent">
+            <div class="hidden md:block overflow-x-hidden">
                 <div class="w-screen h-screen">
                     <div class="w-[20%] h-screen bg-unguEva"></div>
-                    <img src="Gear_1.png" class="h-[30%] absolute top-[30%] right-[-6%] z-0"/>
-                    <!-- <img src="Gear_2.png" class="h-[50%] absolute bottom-[-17%] right-[-7%] z-0"/> -->
-                    <img src="Gear_2.png" class="h-[30%] absolute bottom-[-17%] left-[15%] z-0"/>
-                    <div class="w-[40%] h-screen absolute left-0 top-0 flex flex-col items-center justify-evenly">
-                      <div class="w-[25vw] h-36 rounded-full border-8 border-whiteEva bg-periwinkleEva flex flex-col items-center justify-center text-white text-xl" style="font-family: COCOGOOSE;">
-                        <p>MAMA</p>
-                        <div class="w-[80%] h-2 rounded-full my-3 bg-white"></div>
-                        <p>Rifuki Michi</p>
+                    <img src="Gear_1.png" class="h-[30%] absolute top-[30%] right-[-6%] z-0 animate-spin-slow"/>
+                    <img src="Gear_2.png" class="h-[30%] absolute bottom-[-17%] left-[15%] z-0 animate-spin-slow"/>
+                    <div class="w-[80%] h-screen absolute right-0 top-0 flex flex-col items-center justify-center">
+                      <div class="w-full flex flex-row items-center justify-evenly md:text-2xl xl:text-4xl text-unguEva" style="font-family: COCOGOOSE;">
+                        <a href="https://twitter.com/@ErinaKari" class="flex flex-col justify-center items-center">
+                          <p class="text-2xl md:text-4xl xl:text-6xl">ママ</p>
+                          <img src="mama.jpg" class="md:w-[75%] xl:w-[90%] hover:w-[100%] transition-all duration-200 rounded-full border-8 border-unguMudaEva animate-wiggle my-8"/>
+                          <p>Rifuki Michi</p>
+                        </a>
+                        <a href="https://twitter.com/@rifuki94" class="flex flex-col justify-center items-center">
+                          <p class="md:text-4xl xl:text-6xl">パパ</p>
+                          <img src="papa.jpg" class="md:w-[75%] xl:w-[90%] hover:w-[100%] transition-all duration-200 rounded-full border-8 border-unguMudaEva animate-wiggle my-8"/>
+                          <p>Erina Kari</p>
+                        </a>
                       </div>
-                      <div class="w-[25vw] h-36 rounded-full border-8 border-whiteEva bg-periwinkleEva flex flex-col items-center justify-center text-white text-xl" style="font-family: COCOGOOSE;">
-                        <p>PAPA</p>
-                        <div class="w-[80%] h-2 rounded-full my-3 bg-white"></div>
-                        <p>Erina Kari</p>
-                      </div>
-                    </div>
-                    <div class="w-[70%] h-screen absolute right-0 top-0 flex flex-col items-center justify-center">
-                      <div class="w-full flex flex-row items-center justify-evenly">
-                        <a href="https://twitter.com/@ErinaKari"><img src="mama.jpg" class="w-[20vw] hover:w-[21vw] transition-all duration-200 rounded-full border-8 border-unguMudaEva"/></a>
-                        <a href="https://twitter.com/@rifuki94"><img src="papa.jpg" class="w-[20vw] hover:w-[21vw] transition-all duration-200 rounded-full border-8 border-unguMudaEva"/></a>
-                      </div>
-                      <div class="rounded-full w-1/2 mx-auto mt-12 h-12 hover:w-[60%] hover:h-16 transition-all duration-200 bg-softBlueEva border-4 border-unguEva text-white flex items-center justify-center">
+                      <div class="rounded-full w-1/2 mx-auto mt-12 h-12 hover:w-[60%] hover:h-16 transition-all duration-200 bg-blueButton border-4 border-unguMudaEva text-unguEva flex items-center justify-center">
                         <a href="#home" class="w-full h-full flex items-center justify-center" style="font-family: COCOGOOSE">Back to Home</a>
                       </div>
                     </div>
                 </div>
             </div>
+            <!-- <div class="w-[20%] h-screen bg-unguEva"></div> -->
+            <div class="block md:hidden overflow-x-hidden">
+              <div class="w-screen h-screen flex flex-col justify-evenly items-center">
+                <div class="w-full flex flex-col items-center justify-center">
+                  <a href="https://twitter.com/@ErinaKari"><img src="mama.jpg" class="w-full hover:w-[21vw] transition-all duration-200 rounded-full border-8 border-unguMudaEva"/></a>
+                  <div class="w-[80%] h-36 rounded-full border-8 border-whiteEva bg-periwinkleEva flex flex-col items-center justify-center text-white text-3xl" style="font-family: COCOGOOSE;">
+                    <p>MAMA</p>
+                    <div class="w-[80%] h-2 rounded-full my-3 bg-white"></div>
+                    <p>Rifuki Michi</p>
+                  </div>
+                </div>
+                <div class="w-full flex flex-col items-center justify-center">
+                  <a href="https://twitter.com/@rifuki94"><img src="papa.jpg" class="w-full hover:w-[21vw] transition-all duration-200 rounded-full border-8 border-unguMudaEva"/></a>
+                  <div class="w-[80%] h-36 rounded-full border-8 border-whiteEva bg-periwinkleEva flex flex-col items-center justify-center text-white text-3xl" style="font-family: COCOGOOSE;">
+                    <p>PAPA</p>
+                    <div class="w-[80%] h-2 rounded-full my-3 bg-white"></div>
+                    <p>Erina Kari</p>
+                  </div>
+                </div>
+              </div>
+            </div>
         </section>
         <a href="https://vallencius.my.id">
           <div class="w-screen bg-unguEva">
-            <p class="text-white text-center">Made with 💜 by Vallencius Gavriel</p>
+            <p class="text-white text-center text-xl" style="font-family: COCOGOOSE;">Made with 💜 by Vallencius Gavriel</p>
           </div>
         </a>
-
-        <!-- Absolute img -->
-        <img src="Gear_1.png" class="h-[500px] lg:h-[750px] absolute top-[-200px] lg:top-[calc(-375px)] right-[-15%] z-0"/>
-        <img src="Gear_2.png" class="h-[200px] lg:h-[275px] absolute top-[calc(-150px+100vh)] lg:top-[calc(-225px+100vh)] right-[-4%] z-0"/>
+        <img src="Gear_1.png" class="h-[500px] md:h-[400px] xl:h-[750px] absolute top-[-200px] xl:top-[calc(-375px)] right-[-15%] z-10 animate-spin-slow"/>
+        <img src="Gear_2.png" class="h-[200px] md:h-[250px] xl:h-[275px] absolute top-[calc(-150px+100vh)] xl:top-[calc(-225px+100vh)] right-[-4%] z-10 animate-spin-slow"/>
         <!-- Page1 -->
-        <img src="Gear_1.png" class="h-[500px] lg:h-[700px] absolute top-[calc(-250px+100vh)] lg:top-[calc(-325px+100vh)] left-[-18%] z-0"/>
-        <img src="Gear_2.png" class="h-[450px] absolute bottom-[calc(-150px-100vh)] right-[-7%] z-0"/>
-        <!-- <img src="Gear_1.png" class="h-[20%] absolute top-[calc(5%+100vh)] right-[-4%] z-0"/> -->
-        <img src="Gear_2.png" class="h-[275px] absolute bottom-[calc(-150px-100vh)] right-[20%] z-0"/>
-        <!-- Page2 -->
-        <img src="Gear_2.png" class="h-[350px] absolute bottom-[calc(-125px-200vh)] right-[35%] z-10"/>
+        <img src="Gear_1.png" class="h-[500px] md:h-[500px] xl:h-[700px] absolute top-[calc(-250px+100vh)] xl:top-[calc(-325px+100vh)] left-[-18%] z-10 animate-spin-slow"/>
+        <img src="Gear_2.png" class=" md:h-[200px] xl:h-[450px] absolute bottom-[calc(-100px+200vh)] xl:bottom-[calc(-150px+200vh)] right-[-7%] z-10 animate-spin-slow"/>
+        <img src="Gear_2.png" class=" md:h-[150px] xl:h-[275px] absolute bottom-[calc(-100px+200vh)] xl:bottom-[calc(-150px+200vh)] right-[20%] z-10 animate-spin-slow"/>
+        <img src="Gear_2.png" class="md:hidden xl:block md:h-[200px] xl:h-[350px] absolute bottom-[calc(-75px+100vh)] xl:bottom-[calc(-125px+100vh)] left-[5%] z-10 animate-spin-slow"/>
+      </div>
     </body>
 </html>
