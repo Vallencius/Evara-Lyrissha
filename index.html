@@ -42,9 +42,30 @@
               position:absolute;
               /* Add any additional styles you want for the dots */
             }
+            #loading-screen {
+              transition: opacity 0.3s ease-in-out;
+            }
+
+            #loading-screen.hide {
+              opacity: 0;
+              pointer-events: none;
+            }
           </style>
       <script>
         document.addEventListener("DOMContentLoaded", function(event) { 
+          
+          var loadingScreen = document.getElementById("loading-screen");
+          
+          // Show the loading screen
+          loadingScreen.classList.remove("hide");
+            console.log("DONE1");
+      
+          // Hide the loading screen after 2 seconds
+          setTimeout(function() {
+            loadingScreen.classList.add("hide");
+            console.log("DONE");
+          }, 2000);
+
           // Get a reference to the polka dot container
           const container = document.getElementById('polka-dot-container');
         
@@ -85,6 +106,10 @@
       </script>
     </head>
     <body>
+      <div id="loading-screen" class="fixed w-screen h-screen flex flex-col items-center justify-center bg-periwinkleEva text-white z-50">
+        <img src="Evara_Jalan.gif" class="w-1/2"/>
+        <p class="animate-pulse text-2xl" style="font-family: 'COCOGOOSE';">LOADING...</p>
+      </div>
       <div id="polka-dot-container" class="w-full overflow-x-hidden bg-white relative">
         <section class="w-full h-screen overflow-x-hidden relative z-10" id="home">
             <a class="w-full h-full bg-periwinkleEva flex flex-col items-center justify-center" href="#about">
